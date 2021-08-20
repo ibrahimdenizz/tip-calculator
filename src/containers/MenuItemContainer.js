@@ -5,10 +5,11 @@ import {
   updatePrice,
   updateQuantity
 } from '../store/items/actions';
+import { selectItemTotal } from '../store/items/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    total: parseFloat(ownProps.price * ownProps.quantity).toFixed(2)
+    total: selectItemTotal(state, ownProps)
   };
 };
 
